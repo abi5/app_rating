@@ -1,0 +1,83 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<head>
+<style media="screen">
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://img.freepik.com/free-psd/abstract-background-design_1297-87.jpg?w=1380&t=st=1680605766~exp=1680606366~hmac=bdb54ea0a9dda45251d917f12f3d925eb7612a7e61752c025c9d2b768baaa550");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+    color:white;
+	margin: 100px auto;
+	width: 500px;
+	background-image: url("https://img.freepik.com/free-photo/pastel-blue-vignette-concrete-textured-background_53876-102637.jpg")
+	padding: 20px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+
+}
+
+h1 {
+	text-align: center;
+	color:white;
+	margin-bottom: 20px;
+}
+
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+
+form input[type="submit"] {
+	background-color: #008CBA;
+	color: #fff;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: #005f78;
+}
+.nav-link{
+     color:red;
+}
+</style>
+
+	<title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+    <form method="post">
+        {%csrf_token%}
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter Username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" name="password"><br><br>
+        <input type="submit" value="Login"><br>
+        <h4>Don't have an account?<a class="nav-link" href="/signup">Signup</a></h4>
+
+
+    </form>
+</div>
+
+{% endblock %}

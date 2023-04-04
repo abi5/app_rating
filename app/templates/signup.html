@@ -1,0 +1,76 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <style media="screen">
+      		* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://img.freepik.com/free-photo/abstract-background-with-red-lines_1361-3531.jpg?w=1380&t=st=1680605837~exp=1680606437~hmac=a055dd478724b5caa46b5411da1d415125b3c968a843d178f8f1921dc6d2adf1");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+	margin: 50px auto;
+	width: 400px;
+	color:white;
+	padding: 20px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+
+form input[type="submit"] {
+	background-color: #008CBA;
+	color: #fff;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: #005f78;
+}
+.nav-link{
+     color:red;
+}
+  </style>
+    <div class="container">
+  <h1>Signup</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="username">User name:</label>
+        <input type="text" id="username" placeholder="Enter Username" name="username"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password "name="password"><br>
+<!--        <label for="name">Name: </label>-->
+<!--        <input type="text" id="name" placeholder="Enter Name" name="name"><br>-->
+        <label for="profile_picture">Profile picture:</label>
+        <input type="file" id="profile_picture" name="profile_picture"><br>
+        <input type="submit" value="Signup">
+        <h4>Already have an account?<a class="nav-link" href="/login">Login</a></h4>
+    </form>
+    </div>
+{% endblock %}

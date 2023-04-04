@@ -1,0 +1,69 @@
+Problem Set I - Regex
+
+Write a regex to extract all the numbers with orange color background from the below text in italics
+(Output should be a list)
+text={"orders":[{"id":1},{"id":2},{"id":3},{"id":4},{"id":5},{"id":6},{"id":7},{"id":8},{"id":9},{"id":10},
+{"id":11},{"id":648},{"id":649},{"id":650},{"id":651},{"id":652},{"id":653}],"errors":[{"code":3,"message":"
+[PHP Warning #2] count(): Parameter must be an array or an object that implements Countable (153)"}]}
+
+Answer:
+import re
+text = '{"orders":[{"id":1},{"id":2},{"id":3},{"id":4},{"id":5},{"id":6},{"id":7},{"id":8},{"id":9},{"id":10},{"id":11},{"id":648},{"id":649},{"id":650},{"id":651},{"id":652},{"id":653}],"errors":[{"code":3,"message":"[PHP Warning #2] count(): Parameter must be an array or an object that implements Countable (153)"}]}'
+
+numbers = re.findall(r'"id":(\d+)', text)
+num = re.findall(r'"code":(\d+)', text)
+
+print(numbers+num)
+
+Problem Set 3
+Please answer the below questions:
+
+A. Write and share a small note about your choice of system to schedule periodic tasks
+(such as downloading a list of ISINs every 24 hours). Why did you choose it? Is it reliable enough;
+Or will it scale? If not, what are the problems with it? And, what else would you recommend to fix this
+problem at scale in production?
+Answer:
+Google Cloud Scheduler is a fully-managed, cloud-based service that enables users to schedule recurring or one-time jobs in a simple and reliable way.
+It is an ideal solution for scheduling periodic tasks such as downloading a list of ISINs every 24 hours. Google Cloud Scheduler is easy to use and offers a
+web-based console for scheduling tasks, making it a popular choice for businesses of all sizes.
+One of the key advantages of Google Cloud Scheduler is its reliability. Google guarantees a 99.9% availability service level agreement (SLA) for Cloud Scheduler,
+ensuring that scheduled tasks will run on time and without interruption. Additionally, the service is scalable, meaning it can handle a large volume of tasks
+without any degradation in performance.
+Another benefit of using Google Cloud Scheduler is its integration with other Google Cloud services, including Cloud Functions, Cloud Run, and App Engine.
+This allows users to create complex workflows and automate business processes easily. Cloud Scheduler also supports various protocols such as HTTP, HTTPS,
+Pub/Sub, and Cloud Pub/Sub, making it a versatile solution for scheduling tasks.
+
+One potential problem with Google Cloud Scheduler is that it is a cloud-based service and requires a reliable internet connection to function correctly.
+If the internet connection is lost, scheduled tasks may not run on time, potentially impacting business operations. Additionally, some users may prefer an
+on-premises solution for security or compliance reasons.
+
+To fix scaling problems in production, Google recommends using Cloud Pub/Sub to distribute tasks across multiple nodes and reduce the risk of job duplication
+or failure. Cloud Scheduler also provides built-in retry and error handling mechanisms to ensure that scheduled tasks run successfully.
+
+Overall, Google Cloud Scheduler is a reliable and scalable solution for scheduling periodic tasks. It is an excellent choice for businesses that are already using
+other Google Cloud services and want a fully-managed and integrated solution for task scheduling.
+
+B. In what circumstances would you use Flask instead of Django and vice versa?
+Answer:
+Both Flask and Django are popular web frameworks used for developing web applications in Python.
+However, they have different strengths and weaknesses, and the choice of which one to use depends on the
+specific requirements of the project.
+Flask is a micro web framework that is lightweight and flexible, making it a good choice for small to
+medium-sized projects. It is designed to be minimalistic, with a small core and easy-to-use extensions.
+Flask is suitable for applications that require high levels of customization, and it can be a good choice
+when speed is a priority. Flask also has a low learning curve, which makes it a popular choice for developers
+who are new to web development.
+On the other hand, Django is a full-stack web framework that provides a lot of built-in functionality,
+making it a good choice for large and complex projects. Django includes features like an ORM, a built-in admin
+interface, and a templating engine, which can save time in development. Django also has a robust ecosystem, with
+many third-party libraries and extensions available. Django is suitable for applications that require a lot of
+functionality out of the box and need to be scalable.
+In general, Flask is a better choice when the application needs to be customized and optimized for speed,
+whereas Django is a better choice when the application needs to be scalable and have a lot of built-in
+functionality.
+That being said, the choice of which web framework to use ultimately depends on the specific requirements of
+the project. If the project requires a lot of customization and speed is a priority, Flask may be the better
+choice. If the project requires a lot of built-in functionality and scalability is a priority, Django may be
+the better choice.
+In some cases, it may even be appropriate to use both frameworks in the same project. For example, Flask can be
+used to create microservices that are integrated with a larger Django application.

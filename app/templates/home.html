@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+		* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://img.freepik.com/free-vector/gradient-abstract-hexagon-shapes-background_23-2149120168.jpg?w=1380&t=st=1680605347~exp=1680605947~hmac=ea0350bca5e50fad2491f3224a7e813274f35127545df6b07c416c2f15b890fa");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+	margin: 100px auto;
+	width: 600px;
+	color:#696969;
+	padding: 20px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	font-size:24px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+
+form input[type="submit"] {
+	background-color: #008CBA;
+	color: #fff;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: #005f78;
+}
+.take{
+       top:50%;
+       left:65%;
+       width:60px;
+       height:30px;
+       position: absolute;
+       background: white;
+       text-align: center;
+
+}
+.my-button {
+  background-color: #8A2BE2;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.nav-link{
+     color:blue;
+}
+  </style>
+
+
+  <div class="container">
+  <h1>Welcome <strong>{{ user }} </strong>!!!</h1>
+
+    <h4>You have  <b>{{ point.points }}</b> points and have completed <b>{{ point.tasks_completed.count }}</b> tasks.</h4>
+    <a class="nav-link" href="{% url 'apps_list' %}">View available apps</a>
+      </div>
+  <div class="take">
+<a href="logout">
+    <button class="my-button" >Logout</button>
+  </a>
+  </div>
+
+
+{% endblock %}

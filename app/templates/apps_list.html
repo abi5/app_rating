@@ -1,0 +1,72 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<style media="screen">
+		* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://img.freepik.com/free-vector/abstract-classic-blue-screensaver_23-2148421853.jpg?w=1380&t=st=1680605037~exp=1680605637~hmac=c99fe3c5d46b5c94a93ad1091e157ad7609a389efd87e3f66441f60329972ce9");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+	margin: 150px auto;
+	width: 500px;
+	color:black;
+	padding: 120px;
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+
+form input[type="submit"] {
+	background-color: #008CBA;
+	color: #fff;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: #005f78;
+}
+.nav-link{
+     color:#8FBC8F;
+     font-size: 24px;
+}
+
+</style>
+<div class="container">
+	<h1>Available Apps</h1>
+
+
+            <ul>
+        {% for app in apps %}
+            <li><a class="nav-link" href="{% url 'app_detail' app.id %}">{{ app.name }}</a> - {{ app.points }} points</li>
+        {% empty %}
+            <li>No apps available.</li>
+        {% endfor %}
+   </ul>
+</div>
+{% endblock %}
